@@ -1,19 +1,20 @@
 import { FaEye, FaGithub, FaFolderOpen } from "react-icons/fa";
 import { HiOutlineCode } from "react-icons/hi";
+import Cap from "../Image/Capture.png"
 
 function Project() {
     const projects = [
         {
           category: "E-Commerce",
           title: "ShopEase",
-          img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&q=75&fit=crop&w=600&h=700",
+          img: Cap,
           alt: "ShopEase Project",
           languages: "React, Node.js, Tailwind CSS",
           liveLink: "https://shopease-live.com",
           githubLink: "https://github.com/user/shopease",
         },
         {
-          category: "Portfolio",
+          category: "DashBoard",
           title: "Personal Portfolio",
           img: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&q=75&fit=crop&w=600&h=700",
           alt: "Portfolio Project",

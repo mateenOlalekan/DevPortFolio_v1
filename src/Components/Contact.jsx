@@ -6,7 +6,7 @@ function Contact() {
       <section className="text-gray-600 body-font relative flex  flex-col justify-center items-center mt-10" id="contact" >
         <div className="flex flex-col">
         <p className="text-4xl text-blue-500  text-center">Send a Message</p>
-        <div className="container px-5 max-lg:px-20 max-md:px-10 py-5 mx-auto flex max-lg:flex-col gap-10">
+        <div className="container px-5 max-lg:px-24 max-md:px-20 py-5 mx-auto flex max-lg:flex-col gap-10">
           {/* Map Section */}
           <div className="w-1/2 max-lg:w-full  bg-gray-300 rounded-lg overflow-hidden sm:mr-10 p-10 flex items-end justify-start relative">
           <iframe

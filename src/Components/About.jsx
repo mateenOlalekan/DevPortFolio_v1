@@ -39,7 +39,7 @@ function About() {
   ];
 
   return (
-    <div className="bg-white py-8 sm:py-12 lg:py-16">
+    <div className="bg-white py-6 sm:py-8 lg:py-12" id="about">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
         {/* About Section */}
         <div className="lg:w-1/2 flex flex-col gap-6 text-justify">
