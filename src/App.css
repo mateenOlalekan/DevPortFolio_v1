@@ -11,6 +11,8 @@
   text-decoration: none;
   outline: none;  border: none;
   scroll-behavior: smooth;
+  transform: scale(1); /* Ensure no zooming */
+  transform-origin: top left;
 }
 
 ::-webkit-scrollbar {
@@ -26,3 +28,6 @@
   color: #fff;
 }
 
+body {
+  zoom: 1; /* Ensures consistent zoom */
+}
