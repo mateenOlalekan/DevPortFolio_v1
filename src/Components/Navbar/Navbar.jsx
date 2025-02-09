@@ -11,9 +11,9 @@ function Navbar() {
     }
   return (
     <>
-        <div className='navContainer'>
+        <div className='absolute w-full h-auto bg-black flex mt-20 items-center justify-center bg-transparent'>
             <nav>
-                <img src={Logo} className='w-[50px] h-[50px]  rouded-full'/>
+                <img src={Logo} className='w-fit h-[50px]  r'/>
 
                 <ul className="navList">
                     <li><a href="#home">Home</a></li>

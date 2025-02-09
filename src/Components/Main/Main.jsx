@@ -7,8 +7,8 @@ function Main() {
   return (
     <>
       <div className="relative flex flex-row items-center w-full h-screen">
-        <div className="mainOne w-2/5 h-screen object-cover bg-cover bg-center bg-no-repeat"></div>
-         <div className="relative w-3/5 h-screen bg-[--eerie-black] flex flex-row justify-center items-center gap-20 px-10 pt-24">
+        <div className="mainOne w-2/5 h-screen max-lg:hidden object-cover bg-cover bg-center bg-no-repeat"></div>
+         <div className="relative w-3/5 max-lg:w-full h-screen bg-[--eerie-black] flex flex-row justify-center items-center gap-20 px-10 pt-24">
             <div className="flex flex-col gap-6">
               <div className="me-first">
                 <p className="text-2xl text-justify text-white">Hi,<span className="waving-icon">&#128075;</span>i am </p>
