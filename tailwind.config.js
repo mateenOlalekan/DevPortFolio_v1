@@ -15,6 +15,10 @@ export default {
         roll: "roll 2.5s linear infinite",
         down: "down 2.5s linear infinite",
       },
+      newt:{
+        small:"16px",
+        smaller:"14px"
+      },
       lineHeight: {
         relaxed: "1.8", // Custom relaxed line height
         loose: "2.2", // Custom loose line height

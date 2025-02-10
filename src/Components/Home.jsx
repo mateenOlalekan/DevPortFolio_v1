@@ -1,115 +1,87 @@
-import { useState, useEffect } from "react";
-import "./home.css";
-import marcusImage from "./marcus.jpg";
-import About from "./About";
-import Project from "./Project";
-import Contact from "./Contact";
-import { FaFacebookF, FaTwitter, FaWhatsapp, FaGithub, FaLinkedin, FaArrowUp } from "react-icons/fa";
+import { FaFacebookF, FaTwitter, FaWhatsapp, FaGithub, FaLinkedin, FaDownload } from "react-icons/fa";
+import shock from "./Main/shock.jpg";
+import shok from "./Main/rog.jpg";
 
 function Home() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  // Handle scroll visibility for the button
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    setIsVisible(scrollPosition > 300);
-  };
-
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
-  };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <>
-      <div className="pb-6 sm:pb-8 lg:pb-12">
-        {/* Hero Section */}
-        <section
-          className="flex items-center justify-between bg-white"
+    <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
+
+      {/* Hero Section */}
+      <section className="flex  items-center justify-between bg-white max-lg:pt-40 max-lg:pb-20 ">
+        {/* Hero Image */}
+        <div
+          className="max-lg:w-full lg:w-2/5 h-screen max-lg:hidden lg:block"
           style={{
-            fontSize: "16px", // Set a consistent base font size
+            backgroundImage: `url(${shock})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
-        >
-          {/* Hero Image */}
-          <div
-            className="w-full lg:w-2/5 h-full max-lg:hidden lg:block"
-            style={{
-              backgroundImage: `url(${marcusImage})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: "100vh",
-            }}
-          ></div>
+        ></div>
 
-          {/* Hero Content */}
-          <div className="flex flex-col gap-6 max-lg:gap-2 items-start px-6 lg:px-12 max-lg:mt-36 py-10 lg:py-20 w-full lg:w-3/5">
-            <p className="text-blue-600 text-lg font-medium">Hello, my name is</p>
-            <h1 className="text-3xl lg:text-5xl font-semibold text-gray-900">Abdul-Matin Olalekan.</h1>
-            <h2 className="text-xl lg:text-4xl font-semibold text-gray-600">I create remarkable web experiences.</h2>
-            <p className="text-base lg:text-lg text-gray-500 leading-relaxed text-justify">
-              I’m a passionate software engineer with expertise in building user-friendly, visually appealing, and accessible web
-              applications. My focus is on crafting seamless digital solutions that combine functionality and creativity to solve
-              real-world problems.
-            </p>
-            <a
-              href="#contact"
-              className="inline-block px-6 py-2 mt-5 border-2 bg-blue-600 text-white text-sm lg:text-base font-medium rounded-full hover:bg-blue-700 transition-all duration-300"
-            >
-              Contact Me
-            </a>
-          </div>
+<div className="max-lg:w-full lg:w-3/5 px-5 lg:px-10 flex  lg:flex-row justify-between items-center gap-8 lg:gap-16 transition-all duration-1000">
+  {/* Left Content */}
+  <div className="flex flex-col items-start w-full  space-y-6 lg:space-y-8">
+    <p className="text-blue-600 text-lg font-medium">Hello, my name is</p>
+    <h1 className="text-3xl sm:text-2xl lg:text-5xl font-semibold text-gray-900">
+      Abdul-Matin Olalekan.
+    </h1>
+    <h2 className="text-lg sm:text-xl lg:text-3xl font-medium text-gray-600">
+      I create remarkable web experiences.
+    </h2>
+    <p className="text-sm sm:text-base lg:text-lg lg:w-3/5 text-gray-500 leading-relaxed">
+      I’m a passionate software engineer with expertise in building user-friendly, visually appealing, and accessible web applications. My focus is on crafting seamless digital solutions that combine functionality and creativity to solve real-world problems.
+    </p>
+    <div className="flex gap-4">
+      <a
+        href="#contact"
+        className="inline-block px-6 py-3 bg-blue-600 text-white text-sm max-sm:text-[12px] sm:text-base font-medium rounded-full transition-transform duration-300 hover:bg-blue-700"
+      >
+        Contact Me
+      </a>
+      <a
+        href="#resume"
+        className="flex items-center px-6 py-3 border-2 gap-2 border-blue-600 text-blue-500 text-sm sm:text- font-medium rounded-full transition-transform duration-300 hover:bg-blue-600 hover:text-white"
+      >
+        <span>My Resume</span> <FaDownload />
+      </a>
+    </div>
+  </div>
 
-          {/* Social Media Icons */}
-          <div className="flex flex-col items-end gap-4 p-6 lg:p-12">
-            {[
-              { href: "https://facebook.com", icon: <FaFacebookF />, label: "Facebook" },
-              { href: "https://twitter.com", icon: <FaTwitter />, label: "Twitter" },
-              { href: "https://wa.me", icon: <FaWhatsapp />, label: "WhatsApp" },
-              { href: "https://github.com", icon: <FaGithub />, label: "GitHub" },
-              { href: "https://linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
-            ].map((social, index) => (
-              <a
-                key={index}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-12 h-12 flex items-center justify-center text-xl bg-blue-500 text-white rounded-full shadow-md hover:shadow-lg hover:scale-110 transition-all duration-300"
-                title={social.label}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </div>
-        </section>
+  {/* Right Content */}
+  <div className="flex flex-col items-center   gap-5">
+    {[
+      { href: "https://facebook.com", icon: <FaFacebookF />, label: "Facebook" },
+      { href: "https://twitter.com", icon: <FaTwitter />, label: "Twitter" },
+      { href: "https://wa.me", icon: <FaWhatsapp />, label: "WhatsApp" },
+      { href: "https://github.com", icon: <FaGithub />, label: "GitHub" },
+      { href: "https://linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
+    ].map((social, index) => (
+      <a
+        key={index}
+        href={social.href}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center text-xl bg-blue-500 text-white rounded-full shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300"
+        title={social.label}
+      >
+        {social.icon}
+      </a>
+    ))}
+  </div>
+</div>
+
+
+      </section>      
+      <div className="w-full flex justify-center items-center px-6">
+        <img src={shok} className="md:hidden  w-auto "/>
       </div>
+    </div>
 
-      {/* Additional Sections */}
-      <About />
-      <Project />
-      <Contact />
 
-      {/* Floating Scroll-to-Top Button */}
-      {isVisible && (
-        <button
-          onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition duration-300"
-          aria-label="Scroll to Top"
-        >
-          <FaArrowUp className="text-lg" />
-        </button>
-      )}
     </>
   );
 }
 
 export default Home;
+
