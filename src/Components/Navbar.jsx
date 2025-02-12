@@ -9,9 +9,9 @@ function Navbar() {
   };
 
   return (
-    <div className="absolute top-0 left-0 w-full z-50 mt-10 px-14">
+    <div className="absolute top-0 left-0 w-full z-50 mt-10 px-2">
       {/* Navbar Container */}
-      <div className="mx-auto max-w-screen-2xl  py-3 px-8 flex justify-between rounded-full border-[1px] shadow-lg  bg-white  items-center">
+      <div className="mx-auto max-w-screen-2xl  py-3 lg:px-8 px-4 flex justify-between lg:rounded-full lg:border-[1px] lg:shadow-lg  bg-white  items-center">
         {/* Logo */}
         <a
           href="/"

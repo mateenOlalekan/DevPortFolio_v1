@@ -1,180 +1,145 @@
-import { useState, useEffect } from "react";
-import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
-import { FaArrowUp } from "react-icons/fa";
-import "aos/dist/aos.css"; // Import AOS styles
-import AOS from "aos"; // Import AOS
+import { useState } from "react";
+import { FaEnvelope, FaMapMarkerAlt, FaPhoneAlt, FaUser } from "react-icons/fa";
 
-function Contact() {
-  const [isVisible, setIsVisible] = useState(false);
-  
+function ContactSection() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    messageReason: "",
+    message: "",
+    subscribeEmail: "",
+  });
 
-  // Initialize AOS
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-in-out", // Animation easing
-      once: true, // Whether animation should happen only once
-    });
-  }, []);
+  const [errors, setErrors] = useState({});
 
-  // Handle scroll visibility for the button
-  const handleScroll = () => {
-    setIsVisible(window.scrollY > 300);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Scroll to top function
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
+  const validateForm = () => {
+    let newErrors = {};
+    if (!formData.name) newErrors.name = "Name is required.";
+    if (!formData.email) newErrors.email = "Email is required.";
+    if (!formData.messageReason) newErrors.messageReason = "Please select a reason.";
+    if (!formData.message) newErrors.message = "Message cannot be empty.";
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm()) {
+      alert("Message sent successfully!");
+      setFormData({ name: "", email: "", messageReason: "", message: "", subscribeEmail: "" });
+    }
+  };
+
+
 
   return (
-    <>
-      <div className="bg-white py-1 px-4 sm:px-6 lg:px-12">
-        <div className="max-w-6xl mx-auto">
-          {/* Section Heading */}
-          <section id="contact">
-            <div className="mb-10 text-center" data-aos="fade-up">
-              <h2 className="text-3xl sm:text-4xl font-bold text-blue-600">
-                Get in Touch
-              </h2>
-              <p className="text-base sm:text-lg text-gray-600 mt-2">
-                Have a question or want to collaborate? Feel free to send me a message!
-              </p>
-            </div>
+    <div className="mx-auto max-w-screen-2xl px-6 md:px-16 lg:px-32 py-2 md:py-6">
+      {/* Contact & Form Section */}
+      <div className="flex flex-col md:flex-row gap-10 md:gap-16">
+        {/* Left Section */}
+        <div className="md:w-1/2">
+          <h2 className="text-blue-600 text-4xl md:text-6xl font-semibold mb-4">Send a Message</h2>
+          <p className="text-gray-700 mb-6">
+            Whether it is a business opportunity or a casual Hi!, write me, and I will respond. It's a promise.
+          </p>
 
-            <div className="flex flex-col lg:flex-row gap-10">
-              {/* Map Section */}
-              <div
-                className="lg:w-1/2 w-full bg-gray-300 rounded-lg overflow-hidden relative shadow-lg"
-                data-aos="fade-up"
-              >
-                <iframe
-                  title="map"
-                  className="absolute inset-0 w-full h-full"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3155.647174971038!2d3.379205815316023!3d6.524379295273056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8d737c181b45%3A0x9a3d3d7afdc8af68!2sLagos%2C%20Nigeria!5e0!3m2!1sen!2sng!4v1614039390982!5m2!1sen!2sng"
-                  frameBorder="0"
-                  style={{ filter: "grayscale(1) contrast(1.2) opacity(0.4)" }}
-                ></iframe>
-                <div className="relative bg-white p-6 rounded shadow-md mt-10 lg:mt-0">
-                  <p className="text-sm text-gray-700 mb-4">
-                    Let’s connect! Feel free to reach out, and I'll respond promptly to discuss how I can help with your next project.
-                  </p>
-                  <div className="flex flex-col gap-4">
-                    <div className="flex items-center gap-3">
-                      <MdEmail className="text-blue-500 text-lg" />
-                      <span className="text-sm text-gray-800">
-                        olalekanbilal@gmail.com
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MdLocationOn className="text-blue-500 text-lg" />
-                      <span className="text-sm text-gray-800">
-                        Lagos, Nigeria
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <MdPhone className="text-blue-500 text-lg" />
-                      <span className="text-sm text-gray-800">
-                        +234 812 353 9192
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <form
-                className="lg:w-1/2 w-full bg-white p-6 sm:p-8 shadow-lg rounded-lg border border-gray-200"
-                data-aos="fade-down"
-              >
-                <div className="grid gap-6 mb-6 md:grid-cols-2">
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-600">
-                      First Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="John"
-                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label className="block mb-2 text-sm font-medium text-gray-600">
-                      Last Name
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Doe"
-                      className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                      required
-                    />
-                  </div>
-                </div>
-                <div className="mb-6">
-                  <label className="block mb-2 text-sm font-medium text-gray-600">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="john.doe@example.com"
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    required
-                  />
-                </div>
-                <div className="mb-6">
-                  <label className="block mb-2 text-sm font-medium text-gray-600">
-                    Message
-                  </label>
-                  <textarea
-                    rows="4"
-                    placeholder="Your message here..."
-                    className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                    required
-                  ></textarea>
-                </div>
-                <button
-                  type="submit"
-                  className="w-full px-6 py-3 bg-blue-600 text-white font-medium rounded-lg hover:bg-blue-700 transition"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div>
-
-            {/* Footer */}
-            <div className="border-t-4 border-gray-200 flex flex-col sm:flex-row justify-between items-center px-4 mt-10 py-6 text-center text-sm text-gray-400">
-              <p>© 2025. All Rights Reserved</p>
-              <p className="text-gray-600">
-                Built and designed with ❤️ by <strong>Abdul-Matin Olalekan</strong>.
-              </p>
-            </div>
-          </section>
+          {/* Contact Details */}
+          <div className="flex flex-col gap-4 text-gray-800">
+            <p className="flex items-center gap-3">
+              <FaEnvelope className="text-blue-600" />
+              olalekanbilal@gmail.com
+            </p>
+            <p className="flex items-center gap-3">
+              <FaMapMarkerAlt className="text-blue-600" />
+              Lagos, Nigeria
+            </p>
+            <p className="flex items-center gap-3">
+              <FaPhoneAlt className="text-blue-600" />
+              +234 812 353 9192
+            </p>
+          </div>
         </div>
 
-        {/* Scroll to Top Button */}
-        {isVisible && (
-          <button
-            onClick={scrollToTop}
-            className="fixed bottom-6 right-6 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 transition"
-            aria-label="Scroll to Top"
-          >
-            <FaArrowUp />
-          </button>
-        )}
+        {/* Right Section (Form) */}
+        <div className="md:w-1/2 shadow-lg border-2 p-6 rounded-lg">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              value={formData.name}
+              onChange={handleChange}
+              className="border border-gray-300 p-3 rounded-lg w-full"
+            />
+            {errors.name && <p className="text-blue-600 text-sm">{errors.name}</p>}
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Enter your email"
+              value={formData.email}
+              onChange={handleChange}
+              className="border border-gray-300 p-3 rounded-lg w-full"
+            />
+            {errors.email && <p className="text-blue-600 text-sm">{errors.email}</p>}
+
+            <select
+              name="messageReason"
+              value={formData.messageReason}
+              onChange={handleChange}
+              className="border border-gray-300 p-3 rounded-lg w-full"
+            >
+              <option value="">Reason for Message</option>
+              <option value="Business Inquiry">Business Inquiry</option>
+              <option value="Casual Greeting">Casual Greeting</option>
+              <option value="Other">Other</option>
+            </select>
+            {errors.messageReason && <p className="text-blue-600 text-sm">{errors.messageReason}</p>}
+
+            <textarea
+              name="message"
+              placeholder="Write me one line or ten."
+              value={formData.message}
+              onChange={handleChange}
+              className="border border-gray-300 p-3 rounded-lg w-full h-28"
+            ></textarea>
+            {errors.message && <p className="text-blue-600 text-sm">{errors.message}</p>}
+
+            <button type="submit" className="bg-blue-600 w-fit text-white py-3 px-6 rounded-lg font-medium hover:bg-pink-700 transition-all">
+              Say Hello
+            </button>
+          </form>
+        </div>
       </div>
-    </>
+
+      {/* Footer Section */}
+      <div className="mt-16 border-t border-gray-300 pt-4">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          {/* Left Footer */}
+          <div className="text-center flex items-center justify-center w-full">
+            <p className="text-2xl font-semibold  gap-2">
+              Abdul-Matin <span className="text-blue-600">Olalekan</span> <span className="text-blue-600">⌛</span>
+            </p>
+          </div>
+
+
+        </div>
+
+        {/* Bottom Footer */}
+        <div className="text-center text-gray-600 mt-6 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+          <p>© Olalekan 2025</p>
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-blue-600 transition-all">Terms of Services</a>
+            <a href="#" className="hover:text-blue-600 transition-all">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 
-export default Contact;
+export default ContactSection;
