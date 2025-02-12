@@ -8,14 +8,6 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      {/* <Navbar/>
-      <Home/>
-      <Navbar/>
-*/}   
-      {/* <Navbar/>
-      <Home/>
-      <About/> */}
-      {/* <Project/> */}
       <Navbar/>
       <Home/>
       <About/>

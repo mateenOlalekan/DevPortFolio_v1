@@ -9,13 +9,13 @@ function Navbar() {
   };
 
   return (
-    <div className="absolute top-0 left-0 w-full z-50 bg-white shadow-lg">
+    <div className="absolute top-0 left-0 w-full z-50 mt-10 px-14">
       {/* Navbar Container */}
-      <div className="mx-auto max-w-screen-2xl px-6 py-4 flex justify-between items-center border-b border-gray-200">
+      <div className="mx-auto max-w-screen-2xl  py-3 px-8 flex justify-between rounded-full border-[1px] shadow-lg  bg-white  items-center">
         {/* Logo */}
         <a
           href="/"
-          className="inline-flex items-center text-2xl font-bold text-black"
+          className="inline-flex items-center text-2xl max-lg:text-3xl font-bold max-lg:font-semibold text-black"
           aria-label="logo"
         >
           <span className="text-blue-500">Olale</span>
