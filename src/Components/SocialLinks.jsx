@@ -4,8 +4,8 @@ const socialLinks = [
   { href: "https://facebook.com", icon: <FaFacebookF />, label: "Facebook" },
   { href: "https://twitter.com", icon: <FaTwitter />, label: "Twitter" },
   { href: "https://wa.me", icon: <FaWhatsapp />, label: "WhatsApp" },
-  { href: "https://github.com", icon: <FaGithub />, label: "GitHub" },
-  { href: "https://linkedin.com", icon: <FaLinkedin />, label: "LinkedIn" },
+  { href: "https://github.com/mateenOlalekan/", icon: <FaGithub />, label: "GitHub" },
+  { href: "https://www.linkedin.com/in/abdul-matin-bayorblack-648003238/", icon: <FaLinkedin />, label: "LinkedIn" },
 ];
 
 const SocialLinks = () => {

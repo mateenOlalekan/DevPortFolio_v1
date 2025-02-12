@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import marcus from "../Image/rog.jpg";
+import marcus from "../../public/Image/rog.jpg";
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaGitAlt, FaGithub, FaNodeJs, FaBootstrap,
 } from "react-icons/fa";

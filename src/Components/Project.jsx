@@ -3,7 +3,8 @@ import { FaEye, FaGithub, FaFolderOpen, FaArrowRight } from "react-icons/fa";
 import { HiOutlineCode } from "react-icons/hi";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Wander from "../Image/wander.png";
+
+import Wander from "../../public/Image/wander.png";
 
 function Project() {
   useEffect(() => {

@@ -17,9 +17,9 @@ const Navbar = () => {
   // Prevent scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.classList.add("overflow-hidden");
     } else {
-      document.body.style.overflow = "auto";
+      document.body.classList.remove("overflow-hidden");
     }
   }, [isMobileMenuOpen]);
 
@@ -46,7 +46,7 @@ const Navbar = () => {
             <a
               key={name}
               href={href}
-              className="relative text-lg font-normal text-black hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300"
+              className="relative text-lg font-normal text-black hover:text-blue-500 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300 hover:after:w-full"
             >
               {name}
             </a>
@@ -67,16 +67,16 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-screen h-screen bg-white flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ease-in-out z-40 ${
-          isMobileMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
-        }`}
+        className={`fixed top-0 left-0 w-full h-screen bg-white shadow-md transition-opacity duration-300 ease-in-out ${
+          isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        } z-40 flex flex-col items-center justify-center gap-6`}
       >
         {navLinks.map(({ name, href }) => (
           <a
             key={name}
             href={href}
             onClick={toggleMenu}
-            className="text-2xl font-medium text-gray-800 hover:text-blue-500 transition-colors"
+            className="relative text-lg font-normal text-black hover:text-blue-500 after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300 hover:after:w-full"
           >
             {name}
           </a>
@@ -84,7 +84,7 @@ const Navbar = () => {
         <a
           href="/"
           onClick={toggleMenu}
-          className="bg-blue-500 text-white py-3 px-8 rounded-full text-lg font-medium hover:bg-blue-700 transition-all"
+          className="bg-blue-500 text-white py-2 px-6 rounded-full text-lg font-medium hover:bg-blue-700 transition-all"
         >
           Download CV
         </a>

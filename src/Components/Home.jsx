@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SocialLinks from "./SocialLinks"; // Import SocialLinks component
-import shock from "./Main/shock.jpg";
+import shock from "../../public/Image/shock.jpg";
 
 const Home = () => {
   // Initialize AOS animations
