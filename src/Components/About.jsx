@@ -13,7 +13,7 @@ function About() {
     // Initialize AOS
     useEffect(() => {
       AOS.init({
-        duration: 1000, // Animation duration
+        duration: 500, // Animation duration
         easing: "ease-in-out", // Animation easing
         once: true, // Whether animation should happen only once
       });
@@ -38,8 +38,8 @@ function About() {
   ];
 
   return (
-    <div className="bg-white py-6 sm:py-10 lg:py-6" id="about">
-      <div className="max-w-screen-2xl mx-auto pt-10 px-6 lg:px-36 flex flex-col items-center gap-10">
+    <div className="bg-white py-6 sm:py-10 lg:py-6 flex gap-4 flex-col" id="about">
+      <div className="max-w-screen-2xl mx-auto  px-6 lg:px-36 flex flex-col items-center gap-10">
         {/* About Section */}
         <div className="flex flex-col-reverse lg:flex-row w-full gap-10 lg:gap-20 items-center">
           <div className="lg:w-3/4 flex flex-col gap-6 text-justify" data-aos="fade-right">
@@ -54,25 +54,26 @@ function About() {
           </div>
         </div>
       </div>
-      <div className="flex w-full justify-center items-center px-6 lg:px-36 ">
-<div className="flex flex-col " data-aos="fade-up">
-<h3 className="text-2xl font-bold text-gray-800 mb-4">My Toolkit</h3>
-<p className="text-base md:text-lg text-gray-500 mb-6">
-  Here are some of the technologies and tools I’ve worked with recently:
-</p>
-<ul className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-8 gap-6">
-  {technologies.map((tech, index) => (
-    <li
-      key={index}
-      className="flex flex-col items-center gap-2 text-center"
-    >
-      <span>{tech.icon}</span>
-      <p className="text-xs md:text-sm font-medium text-gray-700">{tech.name}</p>
-    </li>
-  ))}
-</ul>
+      <div className="flex w-full justify-center items-start px-4 sm:px-8 md:px-16 lg:px-36">
+  <div className="flex flex-col sm:items-start" data-aos="fade-up">
+    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">My Toolkit</h3>
+    <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-6 text-center sm:text-left">
+      Here are some of the technologies and tools I’ve worked with recently:
+    </p>
+    <ul className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
+      {technologies.map((tech, index) => (
+        <li
+          key={index}
+          className="flex flex-col items-center gap-2 text-center"
+        >
+          <span>{tech.icon}</span>
+          <p className="text-xs sm:text-sm font-medium text-gray-700">{tech.name}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
 </div>
-</div>
+
     </div>
   );
 }

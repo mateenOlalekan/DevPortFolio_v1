@@ -1,53 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
-function Navbar() {
+const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const toggleMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
+  // Close mobile menu on window resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) setIsMobileMenuOpen(false);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isMobileMenuOpen]);
+
+  const toggleMenu = () => setIsMobileMenuOpen((prev) => !prev);
+
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "Project", href: "#project" },
+    { name: "About", href: "#about" },
+    { name: "Contact", href: "#contact" },
+  ];
 
   return (
-    <div className="absolute top-0 left-0 w-full z-50 mt-10 px-2">
-      {/* Navbar Container */}
-      <div className="mx-auto max-w-screen-2xl  py-3 lg:px-8 px-4 flex justify-between lg:rounded-full lg:border-[1px] lg:shadow-lg  bg-white  items-center">
+    <header className="absolute top-0 left-0 w-full z-50 px-2 mt-10">
+      <div className="mx-auto max-w-screen-2xl flex justify-between items-center bg-white lg:rounded-full lg:border lg:shadow-lg py-3 px-4 lg:px-8">
         {/* Logo */}
-        <a
-          href="/"
-          className="inline-flex items-center text-2xl max-lg:text-3xl font-bold max-lg:font-semibold text-black"
-          aria-label="logo"
-        >
-          <span className="text-blue-500">Olale</span>
-          <span className="text-black">kan</span>
+        <a href="/" className="text-2xl font-bold text-black">
+          <span className="text-blue-500">Olale</span>kan
         </a>
 
-        {/* Desktop Navigation Links */}
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
-          <a
-            href="/"
-            className="relative text-lg font-normal text-black hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300"
-          >
-            Home
-          </a>
-          <a
-            href="#project"
-            className="relative text-lg font-normal text-black hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300"
-          >
-            Project
-          </a>
-          <a
-            href="#about"
-            className="relative text-lg font-normal text-black hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300"
-          >
-            About
-          </a>
-          <a
-            href="#contact"
-            className="relative text-lg font-normal text-black hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-black after:bottom-[-3px] after:left-0 after:transition-all after:duration-300"
-          >
-            Contact
-          </a>
+          {navLinks.map(({ name, href }) => (
+            <a
+              key={name}
+              href={href}
+              className="relative text-lg font-normal text-black hover:after:w-full after:content-[''] after:absolute after:w-0 after:h-[2px] after:bg-blue-500 after:bottom-[-3px] after:left-0 after:transition-all after:duration-300"
+            >
+              {name}
+            </a>
+          ))}
           <a
             href="/"
             className="border-2 bg-blue-500 text-white rounded-full py-2 px-4 hover:bg-white hover:text-blue-500 hover:border-blue-500 transition-all duration-300"
@@ -56,62 +59,38 @@ function Navbar() {
           </a>
         </nav>
 
-        {/* Mobile Menu Icon */}
-        <button
-          onClick={toggleMenu}
-          className="lg:hidden text-3xl text-blue-600 outline-none"
-          aria-label="Toggle Menu"
-        >
+        {/* Mobile Menu Button */}
+        <button onClick={toggleMenu} className="lg:hidden text-3xl text-blue-600">
           {isMobileMenuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       <div
-        className={`fixed top-0 left-0 w-48 h-screen bg-white transition-transform duration-300 ease-in-out transform ${
-          isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
-        } z-40`}
+        className={`fixed top-0 left-0 w-screen h-screen bg-white flex flex-col items-center justify-center space-y-8 transition-transform duration-300 ease-in-out z-40 ${
+          isMobileMenuOpen ? "translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+        }`}
       >
-        <div className="flex flex-col items-center justify-center h-full gap-6">
+        {navLinks.map(({ name, href }) => (
           <a
+            key={name}
+            href={href}
             onClick={toggleMenu}
-            href="/"
-            className="text-xl font-medium text-gray-800 hover:text-blue-500 transition-colors"
+            className="text-2xl font-medium text-gray-800 hover:text-blue-500 transition-colors"
           >
-            Home
+            {name}
           </a>
-          <a
-            onClick={toggleMenu}
-            href="#project"
-            className="text-xl font-medium text-gray-800 hover:text-blue-500 transition-colors"
-          >
-            Project
-          </a>
-          <a
-            onClick={toggleMenu}
-            href="#about"
-            className="text-xl font-medium text-gray-800 hover:text-blue-500 transition-colors"
-          >
-            About
-          </a>
-          <a
-            onClick={toggleMenu}
-            href="#contact"
-            className="text-xl font-medium text-gray-800 hover:text-blue-500 transition-colors"
-          >
-            Contact
-          </a>
-          <a
-            href="/"
-            onClick={toggleMenu}
-            className="bg-blue-500 text-white py-2 px-6 rounded-full text-lg font-medium hover:bg-blue-700 transition-all"
-          >
-            Download CV
-          </a>
-        </div>
+        ))}
+        <a
+          href="/"
+          onClick={toggleMenu}
+          className="bg-blue-500 text-white py-3 px-8 rounded-full text-lg font-medium hover:bg-blue-700 transition-all"
+        >
+          Download CV
+        </a>
       </div>
-    </div>
+    </header>
   );
-}
+};
 
 export default Navbar;

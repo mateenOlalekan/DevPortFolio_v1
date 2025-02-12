@@ -8,11 +8,11 @@ import "./App.css";
 const App = () => {
   return (
     <>
-      <Navbar/>
-      <Home/>
-      <About/>
-      <Project/>
-      <Contact/>
+      <Navbar />
+      <Home />
+      <About />
+      <Project />
+      <Contact />
     </>
   );
 };
