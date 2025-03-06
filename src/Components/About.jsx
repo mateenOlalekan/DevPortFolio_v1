@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 import marcus from "../../public/Image/rog.jpg";
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaGitAlt, FaGithub, FaNodeJs, FaBootstrap,
@@ -6,19 +8,28 @@ import {
 import {
   SiTailwindcss, SiTypescript, SiRedux, SiSass, SiNpm, SiJquery, SiGraphql,
 } from "react-icons/si";
-import AOS from "aos";
-import "aos/dist/aos.css";
 
-function About() {
-    // Initialize AOS
-    useEffect(() => {
-      AOS.init({
-        duration: 500, // Animation duration
-        easing: "ease-in-out", // Animation easing
-        once: true, // Whether animation should happen only once
-      });
-    }, []);
-  
+// About Me sub-component
+const AboutMeSection = () => (
+  <div className="flex flex-col-reverse lg:flex-row w-full gap-10 lg:gap-20 items-center" data-aos="fade-right">
+    <div className="lg:w-3/4 flex flex-col gap-6 text-justify">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+      <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+        Hi, my name is Abdul-Matin Olalekan. I’m a frontend developer passionate about creating clean, responsive, and user-friendly web applications.
+        My journey into development began with a strong curiosity for technology and how websites work, which led me to explore the exciting world of web development.
+        Over the past year, I’ve gained hands-on experience in building web projects using technologies like HTML, CSS, JavaScript, and React.
+        My focus has been on creating scalable, maintainable, and accessible interfaces while learning best practices in responsive design and cross-browser compatibility.
+        I enjoy solving problems and continuously refining my code to make it as efficient as possible.
+      </p>
+    </div>
+    <div className="lg:w-1/4 flex justify-center items-center p-4" data-aos="fade-left">
+      <img src={marcus} alt="Profile" className="w-60 md:w-72 lg:w-full h-auto rounded-xl object-cover" />
+    </div>
+  </div>
+);
+
+// Toolkit sub-component
+const ToolkitSection = () => {
   const technologies = [
     { name: "HTML", icon: <FaHtml5 className="text-orange-500 text-3xl md:text-4xl" /> },
     { name: "CSS", icon: <FaCss3Alt className="text-blue-500 text-3xl md:text-4xl" /> },
@@ -38,46 +49,43 @@ function About() {
   ];
 
   return (
-    <div className="bg-white py-6 sm:py-10 lg:py-6 flex gap-4 flex-col" id="about">
-      <div className="max-w-screen-2xl mx-auto  px-6 lg:px-36 flex flex-col items-center gap-10">
-        {/* About Section */}
-        <div className="flex flex-col-reverse lg:flex-row w-full gap-10 lg:gap-20 items-center">
-          <div className="lg:w-3/4 flex flex-col gap-6 text-justify" data-aos="fade-right">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">About Me</h2>
-            <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-              Hi, my name is Abdul-Matin Olalekan. I’m a frontend developer passionate about creating clean, responsive, and user-friendly web applications. My journey into development began with a strong curiosity for technology and how websites work, which led me to explore the exciting world of web development.
-              Over the past year, I’ve gained hands-on experience in building web projects using technologies like HTML, CSS, JavaScript, and React. My focus has been on creating scalable, maintainable, and accessible interfaces while also learning best practices in responsive design and cross-browser compatibility. I enjoy solving problems and continuously refining my code to make it as efficient as possible.
-            </p>
-          </div>
-          <div className="lg:w-1/4 flex justify-center items-center p-4" data-aos="fade-left">
-            <img src={marcus} className="w-60 md:w-72 lg:w-full h-auto rounded-xl object-cover" alt="Profile" />
-          </div>
-        </div>
+    <div className="flex w-full justify-center items-start my-10" data-aos="fade-up">
+      <div className="flex flex-col sm:items-start">
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">My Toolkit</h3>
+        <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-6 text-center sm:text-left">
+          Here are some of the technologies and tools I’ve worked with recently:
+        </p>
+        <ul className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-12 gap-6">
+          {technologies.map((tech, index) => (
+            <li key={index} className="flex flex-col items-center gap-2 text-center">
+              <span>{tech.icon}</span>
+              <p className="text-xs sm:text-sm font-medium text-gray-700">{tech.name}</p>
+            </li>
+          ))}
+        </ul>
       </div>
-      <div className="flex w-full justify-center items-start px-4 sm:px-8 md:px-16 lg:px-36">
-  <div className="flex flex-col sm:items-start" data-aos="fade-up">
-    <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4">My Toolkit</h3>
-    <p className="text-sm sm:text-base md:text-lg text-gray-500 mb-6 text-center sm:text-left">
-      Here are some of the technologies and tools I’ve worked with recently:
-    </p>
-    <ul className="grid grid-cols-5 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-6">
-      {technologies.map((tech, index) => (
-        <li
-          key={index}
-          className="flex flex-col items-center gap-2 text-center"
-        >
-          <span>{tech.icon}</span>
-          <p className="text-xs sm:text-sm font-medium text-gray-700">{tech.name}</p>
-        </li>
-      ))}
-    </ul>
-  </div>
-</div>
-
     </div>
   );
-}
+};
+
+const About = () => {
+  // Initialize AOS once when the component mounts
+  useEffect(() => {
+    AOS.init({
+      duration: 500,
+      easing: "ease-in-out",
+      once: true,
+    });
+  }, []);
+
+  return (
+    <div className="bg-white py-1 sm:py-10 lg:py-6 flex flex-col gap-4" id="about">
+      <div className="max-w-screen-2xl mx-auto px-6 lg:px-36 flex flex-col items-center gap-10">
+        <AboutMeSection />
+      </div>
+      <ToolkitSection />
+    </div>
+  );
+};
 
 export default About;
-
-

@@ -16,7 +16,7 @@ const Home = () => {
   }, []);
 
   return (
-    <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
+    <div className="bg-white pb-3 sm:pb-4 lg:pb-6">
       {/* Hero Section */}
       <section className="flex items-center justify-between bg-white max-lg:pt-40 max-lg:pb-20">
         {/* Hero Image */}

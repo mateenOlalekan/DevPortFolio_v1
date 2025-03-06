@@ -35,9 +35,9 @@ function ContactSection() {
   };
 
   return (
-    <div className="max-w-5xl mx-auto p-8 space-y-10">
+    <div className="max-w-7xl mx-auto pt-24 pb-10 space-y-10" id="contact">
       {/* Contact Info */}
-      <div className="flex flex-col md:flex-row gap-10">
+      <div className="flex flex-col md:flex-row ">
         <div className="md:w-1/2 space-y-6">
           <h2 className="text-4xl font-bold text-blue-600 flex items-center gap-3">
             <FaRegCommentDots className="text-blue-600" /> Get in Touch
@@ -118,8 +118,27 @@ function ContactSection() {
       </div>
 
       {/* Footer */}
-      <div className="text-center text-gray-600 border-t pt-4 text-sm">
-        <p>© 2025 Olalekan. All rights reserved.</p>
+
+
+      <div className=" flex flex-col justify-between text-gray-600 border-t text-sm gap-10">
+      <div className="flex  gap-4 font-semibold text-center  justify-center w-full text-xl text-gray-600">
+        <div className="flex gap-2 mt-2">
+        <p>Abdul-Matin</p>
+        <span className="text-blue-500">Olalekan ⌛</span>
+        </div>
+      </div>
+      <div className="flex justify-between">
+        <p>© Olalekan 2025</p>
+      <div className="flex gap-4">
+          <a href="/" className="hover:text-blue-500 transition-all">
+            Privacy Policy
+          </a>
+          <a href="/" className="hover:text-blue-500 transition-all">
+            Terms & Conditions
+          </a>
+          </div>
+      </div>
+
       </div>
     </div>
   );

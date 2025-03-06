@@ -17,7 +17,7 @@ const SocialLinks = () => {
           href={href}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-12 h-12 sm:w-10 sm:h-10 flex items-center justify-center text-xl md:text-2xl bg-blue-600 text-white rounded-full shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300"
+          className="w-8 h-8 md:w-12 md:h-12 md:text-xl flex items-center justify-center  bg-blue-600 text-white rounded-full shadow-md hover:shadow-lg hover:scale-110 transition-transform duration-300"
           title={label}
           data-aos="flip-up"
         >

@@ -36,7 +36,7 @@ const Navbar = () => {
     <header className="absolute top-0 left-0 w-full z-50 px-2 mt-10">
       <div className="mx-auto max-w-screen-2xl flex justify-between items-center bg-white lg:rounded-full lg:border lg:shadow-lg py-3 px-4 lg:px-8">
         {/* Logo */}
-        <a href="/" className="text-2xl font-bold text-black">
+        <a href="/" className="lg:text-2xl text-3xl  font-bold text-black">
           <span className="text-blue-500">Olale</span>kan
         </a>
 
