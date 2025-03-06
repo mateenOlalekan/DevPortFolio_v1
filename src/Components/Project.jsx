@@ -82,14 +82,7 @@ const projectsData = [
   }
 ];
 
-const iconElements = [
-  <Code key="code" className="h-5 w-5 text-blue-500" />,
-  <Monitor key="monitor" className="h-5 w-5 text-green-500" />,
-  <Layers key="layers" className="h-5 w-5 text-purple-500" />,
-  <Palette key="palette" className="h-5 w-5 text-amber-500" />,
-  <Database key="database" className="h-5 w-5 text-red-500" />,
-  <BarChart key="chart" className="h-5 w-5 text-indigo-500" />
-];
+
 
 
 
@@ -101,7 +94,7 @@ function Project() {
 
 
   return (
-    <div id="portfolio" className="bg-white py-5 flex flex-col justify-center items-center px-6 lg:px-36 " >
+    <div id="project" className="bg-white py-5 flex flex-col justify-center items-center px-6 lg:px-36 " >
     <div className="text-center mb-10" data-aos="fade-up">
     <h2 className="text-3xl font-bold text-gray-800 flex items-center justify-center gap-2">
       <FaFolderOpen className="text-blue-500" /> Featured Projects
