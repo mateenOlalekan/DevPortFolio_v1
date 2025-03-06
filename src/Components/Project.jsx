@@ -22,7 +22,7 @@ const projectsData = [
     description:
       "A platform for educators to learn, explore, and master modern teaching technologies to enhance learning and engagement..",
     technologies: ["React", "Tailwind", "Firebase"],
-    liveUrl: "coach-africa.vercel.app",
+    liveUrl: "https://coach-africa.vercel.app",
     githubUrl: "https://github.com/example/finance"
   },
   {
