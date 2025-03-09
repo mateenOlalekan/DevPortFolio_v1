@@ -27,10 +27,10 @@ const projectsData = [
   },
   {
     id: "3",
-    title: "Digital Wellness App",
+    title: "Weather App",
     description:
       "A mindfulness and health tracking application with personalized recommendations and habit formation techniques.",
-    technologies: ["React Native", "Redux", "Express", "PostgreSQL"],
+    technologies: ["React", "Rest-Api", "Firebase"],
     liveUrl: "https://example.com/wellness",
     githubUrl: "https://github.com/example/wellness"
   },
@@ -39,7 +39,7 @@ const projectsData = [
     title: "Creative Portfolio Platform",
     description:
       "A showcase platform for designers and artists with customizable layouts and integrated analytics for visitor engagement.",
-    technologies: ["Next.js", "GraphQL", "Tailwind CSS", "Vercel"],
+    technologies: ["Next.js","Tailwind CSS", "Vercel"],
     liveUrl: "https://example.com/portfolio",
     githubUrl: "https://github.com/example/portfolio"
   },
@@ -48,38 +48,19 @@ const projectsData = [
     title: "Smart Home Controller",
     description:
       "An IoT dashboard for managing connected home devices with automation sequences and energy consumption monitoring.",
-    technologies: ["React", "Node.js", "MQTT", "WebSockets"],
+    technologies: ["React", "Tailwind","Vercel"],
     liveUrl: "https://example.com/smarthome",
     githubUrl: "https://github.com/example/smarthome"
   },
   {
     id: "6",
-    title: "Learning Management System",
+    title: "Project Management",
     description:
       "A comprehensive educational platform with course creation tools, student progress tracking, and interactive learning materials.",
-    technologies: ["Angular", "Express", "MongoDB", "AWS"],
+    technologies: ["React", "Express", "MongoDb"],
     liveUrl: "https://example.com/lms",
     githubUrl: "https://github.com/example/lms"
   },
-
-  {
-    id: "7",
-    title: "Learning Management System",
-    description:
-      "A comprehensive educational platform with course creation tools, student progress tracking, and interactive learning materials.",
-    technologies: ["Angular", "Express", "MongoDB", "AWS"],
-    liveUrl: "https://example.com/lms",
-    githubUrl: "https://github.com/example/lms"
-  },
-  {
-    id: "8",
-    title: "Learning Management System",
-    description:
-      "A comprehensive educational platform with course creation tools, student progress tracking, and interactive learning materials.",
-    technologies: ["Angular", "Express", "MongoDB", "AWS"],
-    liveUrl: "https://example.com/lms",
-    githubUrl: "https://github.com/example/lms"
-  }
 ];
 
 
@@ -94,7 +75,7 @@ function Project() {
 
 
   return (
-    <div id="project" className="bg-white py-5 flex flex-col justify-center items-center px-6 lg:px-36 " >
+    <div id="project" className="bg-white py-5 flex flex-col justify-center items-center px-6 lg:px-36  " >
     <div className="text-center mb-10" data-aos="fade-up">
     <h2 className="text-3xl font-bold text-gray-800 flex items-center justify-center gap-2">
       <FaFolderOpen className="text-blue-500" /> Featured Projects
@@ -105,7 +86,7 @@ function Project() {
     <div className="w-16 h-1 bg-blue-400 mx-auto mt-4 rounded-full"></div>
   </div>
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
           {projectsData.map((project, index) => (
             <div
               key={project.id}

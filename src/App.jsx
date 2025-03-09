@@ -7,16 +7,15 @@ import "./App.css";
 
 const App = () => {
   return (
-    <>
+    <div className="flex flex-col min-h-screen bg-white">
       <Navbar />
-      <Home/>
-      <About/>
-      <Project/>
-      {/* <Home />
-      <About />
-      <Project /> */}
-      <Contact />
-    </>
+      <main className="flex-grow">
+        <Home />
+        <About />
+        <Project />
+        <Contact />
+      </main>
+    </div>
   );
 };
 
