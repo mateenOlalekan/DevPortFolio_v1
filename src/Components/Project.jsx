@@ -75,7 +75,7 @@ function Project() {
 
 
   return (
-    <div id="project" className="bg-white py-5 flex flex-col justify-center items-center px-6 lg:px-36  " >
+    <div id="project" className="bg-white py-10 flex flex-col justify-center items-center px-6 lg:px-36  " >
     <div className="text-center mb-10" data-aos="fade-up">
     <h2 className="text-3xl font-bold text-gray-800 flex items-center justify-center gap-2">
       <FaFolderOpen className="text-blue-500" /> Featured Projects
