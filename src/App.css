@@ -8,25 +8,10 @@
   font-family: 'Jost', sans-serif;
   list-style: none;
   text-decoration: none;
-  outline: none;  border: none;
+
   scroll-behavior: smooth;
-  transform: scale(1); /* Ensure no zooming */
-  transform-origin: top left;
+
 }
 
-::-webkit-scrollbar {
-  width: 1px;
-}
 
-::-webkit-scrollbar-track {
-  background-color: #8c8c8c39;
-  background-color:#222222e6
-}
 
-::-webkit-scrollbar-thumb {
-  color: #fff;
-}
-
-body {
-  zoom: 1; /* Ensures consistent zoom */
-}
