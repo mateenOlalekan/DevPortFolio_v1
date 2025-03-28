@@ -3,14 +3,11 @@
 *,
 *::before,
 *::after {
-
   box-sizing: border-box;
   font-family: 'Jost', sans-serif;
   list-style: none;
   text-decoration: none;
-
   scroll-behavior: smooth;
-
 }
 
 

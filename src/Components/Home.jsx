@@ -28,13 +28,13 @@ const Home = () => {
 
         {/* Hero Content */}
         <div
-  className="max-lg:w-full lg:w-3/5 px-5 lg:px-10 flex lg:flex-row justify-between items-center gap-8 lg:gap-16 transition-all duration-1000"
+  className="max-lg:w-full lg:w-4/5 px-5 lg:px-10 flex lg:flex-row justify-between items-center gap-8 lg:gap-16 transition-all duration-1000"
   data-aos="fade-up"
 >
   {/* Left Content */}
   <div className="flex flex-col items-start w-full space-y-6 lg:space-y-8">
     <p className="text-blue-600 text-lg font-medium tracking-wide">Hello, I'm</p>
-    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+    <h1 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-gray-900 leading-tight">
       Abdul-Matin Olalekan.
     </h1>
     <h2 className="text-lg sm:text-2xl lg:text-3xl font-medium text-gray-700">
@@ -50,20 +50,13 @@ const Home = () => {
     <div className="flex flex-wrap gap-4 mt-2">
       <a
         href="#contact"
-        className="inline-block px-6 py-3 bg-blue-600 text-white text-sm sm:text-base font-medium rounded-full transition-all duration-300 hover:bg-blue-700 hover:shadow-lg hover:-translate-y-1"
+        className="flex justify-center items-center px-4 py-1 text-sm bg-blue-600 text-white  rounded-full transition-all duration-300 "
         data-aos="zoom-in"
         data-aos-delay="200"
       >
-        Let's Work Together
+        Contact Me
       </a>
-      <a
-        href="#projects"
-        className="inline-block px-6 py-3 bg-gray-800 text-white text-sm sm:text-base font-medium rounded-full transition-all duration-300 hover:bg-gray-900 hover:shadow-lg hover:-translate-y-1"
-        data-aos="zoom-in"
-        data-aos-delay="300"
-      >
-        View My Work
-      </a>
+
       <a
         href="#resume"
         className="flex items-center px-6 py-3 border-2 gap-2 border-blue-600 text-blue-600 text-sm sm:text-base font-medium rounded-full transition-all duration-300 hover:bg-blue-50 hover:shadow-md"
