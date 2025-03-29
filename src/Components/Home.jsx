@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import SocialLinks from "./SocialLinks"; // Import SocialLinks component
-import shock from "../../public/Image/shock.jpg";
+import shock from "../assets/me.jfif";
 
 const Home = () => {
   // Initialize AOS animations
@@ -50,13 +50,20 @@ const Home = () => {
     <div className="flex flex-wrap gap-4 mt-2">
       <a
         href="#contact"
-        className="flex justify-center items-center px-4 py-1 text-sm bg-blue-600 text-white  rounded-full transition-all duration-300 "
+        className="flex justify-center items-center px-6 py-3 text-sm bg-blue-600 text-white  rounded-full transition-all duration-300 "
         data-aos="zoom-in"
         data-aos-delay="200"
       >
         Contact Me
       </a>
-
+      <a
+        href="#projects"
+        className="flex justify-center items-center px-6 py-3 bg-gray-800 text-white text-sm sm:text-base font-medium rounded-full transition-all duration-300 hover:bg-gray-900 hover:shadow-lg hover:-translate-y-1"
+        data-aos="zoom-in"
+        data-aos-delay="300"
+      >
+        View My Work
+      </a>
       <a
         href="#resume"
         className="flex items-center px-6 py-3 border-2 gap-2 border-blue-600 text-blue-600 text-sm sm:text-base font-medium rounded-full transition-all duration-300 hover:bg-blue-50 hover:shadow-md"

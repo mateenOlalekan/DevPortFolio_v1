@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import profileImage from "../../public/Image/rog.jpg";
+import profileImage from "../assets/me.jfif";
 import {
   FaHtml5, FaCss3Alt, FaJsSquare, FaReact, FaGitAlt, FaGithub, FaNodeJs, FaBootstrap,
  FaLaptopCode, FaPalette,FaBriefcase,FaUserGraduate,FaTools
@@ -9,6 +9,7 @@ import {
 import {
   SiTailwindcss, SiTypescript, SiRedux, SiSass,SiVisualstudio,SiMongodb, SiFirebase, SiFigma
 } from "react-icons/si";
+
 
 
 
