@@ -13,7 +13,7 @@
     "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.0.17",
     "aos": "^2.3.4",
-    "axios": "^1.7.9",
+    "axios": "^1.8.2",
     "emailjs": "^4.0.3",
     "framer-motion": "^10.16.12",
     "init": "^0.1.2",
